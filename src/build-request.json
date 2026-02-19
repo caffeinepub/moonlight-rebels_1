@@ -1,0 +1,194 @@
+{
+  "kind": "build_request",
+  "title": "Build Moonlight Rebels streamer website with dual authentication and subscription management",
+  "projectName": "Moonlight Rebels",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Implement owner/admin authentication system using Internet Identity that restricts access to admin features",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "login for the owner, me"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Owner can authenticate using Internet Identity",
+        "Admin-specific routes are protected and only accessible to authenticated owner",
+        "Clear distinction between owner and regular user authentication flows"
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement separate user authentication system using Internet Identity for regular users",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "a seperate login for the user"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Regular users can authenticate using Internet Identity",
+        "User authentication is separate from owner authentication",
+        "Users can access user-specific features after authentication"
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Create partner/sponsor/affiliate tracking page that displays and manages partners, sponsors, and affiliates with paid subscription functionality",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "another page that tracks partners,sponsors, and afiliates for twitch thats a paid subscription"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Page displays list of partners, sponsors, and affiliates",
+        "Each entry can be categorized as partner, sponsor, or affiliate",
+        "Subscription-based access control is implemented",
+        "Only subscribed users can view the full tracking page or certain details"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Integrate Stripe payment processing in the admin page for managing subscriptions",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "add stripe login placement in the admin page"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Stripe payment integration is present in admin interface",
+        "Admin can manage subscription settings through Stripe",
+        "Payment flow is functional for subscription purchases"
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Design and implement pink and purple Twitch-themed visual design throughout the entire website matching the Moonlight Rebels brand",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "make the website name be Moonlight Rebels matches twitch theme pink and purple"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Website uses pink and purple color scheme consistent with Twitch branding",
+        "Moonlight Rebels name is prominently displayed",
+        "Visual theme is cohesive across all pages",
+        "Design reflects gaming/streaming aesthetic"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Add bio section that explains the story of a medical mute gamer girl and encourages visitors to follow her",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "add a bio that explains why a medical mute gamer girl is nice and you should really follow her"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Bio section is visible on the main page or dedicated about section",
+        "Content explains the medical mute gamer girl story in an engaging way",
+        "Bio includes call-to-action encouraging visitors to follow",
+        "Text is respectful and inspirational"
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Add button that links to the owner's Twitch channel at https://www.twitch.tv/auroramoonveil",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "add a button that links the owners twitch channel https://www.twitch.tv/auroramoonveil"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Button is prominently displayed on the homepage",
+        "Button links correctly to https://www.twitch.tv/auroramoonveil",
+        "Link opens in a new tab",
+        "Button design matches the pink/purple Twitch theme"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Store and manage partner, sponsor, and affiliate data in the backend including their details, categories, and subscription requirements",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "tracks partners,sponsors, and afiliates"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend stores partner/sponsor/affiliate records with relevant details",
+        "Data model supports categorization (partner vs sponsor vs affiliate)",
+        "CRUD operations available for admin to manage entries",
+        "Subscription status can be queried to control access"
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Implement subscription management system in the backend to track user subscription status and control access to premium content",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "thats a paid subscription"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend tracks which users have active subscriptions",
+        "Subscription status determines access to partner/sponsor/affiliate tracking",
+        "System can verify subscription status before serving protected content",
+        "Admin can view and manage subscription states"
+      ]
+    }
+  ],
+  "constraints": [
+    "Must use Internet Identity for all authentication (both owner and user)",
+    "Stripe integration must be frontend-only (no backend Stripe SDK)",
+    "All data persistence must use Motoko backend"
+  ],
+  "nonGoals": [
+    "Real-time chat or messaging features",
+    "Third-party social media API integrations beyond linking to Twitch",
+    "Mobile app development",
+    "Email notification system"
+  ],
+  "imageRequirements": {
+    "required": [
+      "Moonlight Rebels logo with pink and purple gaming aesthetic featuring moon and rebel themes (logo.dim_400x400.png)",
+      "Hero background with pink and purple gradient matching Twitch theme and gaming atmosphere (hero-bg.dim_1920x600.png)"
+    ],
+    "edits": []
+  }
+}

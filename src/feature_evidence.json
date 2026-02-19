@@ -1,0 +1,168 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-implement-owner-admin-authentication-system-using-internet-identity-that-restricts-access-to-admin-features",
+      "featureTitle": "Implement owner/admin authentication system using Internet Identity that restricts access to admin features",
+      "files": [
+        "frontend/src/components/AdminGuard.tsx",
+        "frontend/src/components/LoginButton.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-separate-user-authentication-system-using-internet-identity-for-regular-users",
+      "featureTitle": "Implement separate user authentication system using Internet Identity for regular users",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ProfileSetupModal.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-partner-sponsor-affiliate-tracking-page-that-displays-and-manages-partners-sponsors-and-affiliates-with-paid-subscription-functionality",
+      "featureTitle": "Create partner/sponsor/affiliate tracking page that displays and manages partners, sponsors, and affiliates with paid subscription functionality",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/PartnerCard.tsx",
+        "frontend/src/pages/PartnersPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-integrate-stripe-payment-processing-in-the-admin-page-for-managing-subscriptions",
+      "featureTitle": "Integrate Stripe payment processing in the admin page for managing subscriptions",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/StripeSetup.tsx",
+        "frontend/src/components/SubscriptionCheckout.tsx",
+        "frontend/src/pages/AdminPage.tsx",
+        "frontend/src/pages/PaymentFailure.tsx",
+        "frontend/src/pages/PaymentSuccess.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-and-implement-pink-and-purple-twitch-themed-visual-design-throughout-the-entire-website-matching-the-moonlight-rebels-brand",
+      "featureTitle": "Design and implement pink and purple Twitch-themed visual design throughout the entire website matching the Moonlight Rebels brand",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Header.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-bio-section-that-explains-the-story-of-a-medical-mute-gamer-girl-and-encourages-visitors-to-follow-her",
+      "featureTitle": "Add bio section that explains the story of a medical mute gamer girl and encourages visitors to follow her",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/BioSection.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-button-that-links-to-the-owner-s-twitch-channel-at-https-www-twitch-tv-auroramoonveil",
+      "featureTitle": "Add button that links to the owner's Twitch channel at https://www.twitch.tv/auroramoonveil",
+      "files": [
+        "frontend/src/components/TwitchButton.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "stripe@3.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0",
+        "http-outcalls@3.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

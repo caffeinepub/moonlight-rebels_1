@@ -1,0 +1,22 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup, defining all routes (home, partners, admin, payment success/failure) and wrapping the app with ThemeProvider and Toaster for dark mode and notifications.",
+  "frontend/src/hooks/useQueries.ts": "Custom React Query hooks for all backend operations including user profiles, roles, partners, subscriptions, and Stripe configuration with proper state management and cache invalidation.",
+  "frontend/src/components/Layout.tsx": "Layout wrapper component that provides consistent structure with Header and Footer across all pages.",
+  "frontend/src/components/Header.tsx": "Responsive header with Moonlight Rebels branding, logo, navigation menu, and login button with mobile menu support.",
+  "frontend/src/components/Footer.tsx": "Footer component with copyright, Caffeine.ai attribution with UTM tracking, and Twitch social link.",
+  "frontend/src/components/LoginButton.tsx": "Internet Identity login/logout button with loading states and proper authentication flow handling.",
+  "frontend/src/components/ProfileSetupModal.tsx": "Modal dialog for first-time user profile setup that prompts authenticated users without profiles to enter their name.",
+  "frontend/src/components/BioSection.tsx": "Bio section component that tells Aurora's story as a medical mute gamer with inspirational messaging and call-to-action.",
+  "frontend/src/components/TwitchButton.tsx": "Prominent call-to-action button linking to Aurora's Twitch channel with external link icon.",
+  "frontend/src/components/AdminGuard.tsx": "Protected route component that checks admin permissions and displays appropriate access denied screens for unauthorized users.",
+  "frontend/src/components/StripeSetup.tsx": "Stripe configuration form for admins to set up payment processing with secret key and allowed countries.",
+  "frontend/src/components/SubscriptionCheckout.tsx": "Subscription checkout component that creates Stripe checkout sessions and redirects users to payment flow.",
+  "frontend/src/components/PartnerCard.tsx": "Card component displaying partner/sponsor/affiliate information with subscription-based content locking, type-specific badges, and helper function to extract partner type from Motoko variant format.",
+  "frontend/src/pages/HomePage.tsx": "Homepage with hero section featuring background image, bio section, Twitch button, and community features showcase with profile setup modal integration.",
+  "frontend/src/pages/PartnersPage.tsx": "Partners listing page with subscription checkout, partner cards, and access control based on authentication and subscription status.",
+  "frontend/src/pages/AdminPage.tsx": "Admin dashboard with Stripe configuration, partner management (add/delete), and admin-only access control with proper Motoko variant type handling for PartnerType.",
+  "frontend/src/pages/PaymentSuccess.tsx": "Payment success confirmation page that invalidates subscription queries and provides navigation to partners page.",
+  "frontend/src/pages/PaymentFailure.tsx": "Payment failure/cancellation page with options to retry payment or return home.",
+  "frontend/src/index.css": "Global styles with OKLCH color system defining Moonlight Rebels pink and purple theme for both light and dark modes with custom color tokens.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with Moonlight Rebels custom colors (moonlight purple and rebel pink) and design tokens for consistent theming."
+}

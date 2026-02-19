@@ -1,0 +1,136 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Website for Twitch streamer with dual login (owner/user), partner/sponsor/affiliate tracking with paid subscriptions, Stripe integration, and promotional content",
+  "architectural_notes": [
+    "Dual authentication system: owner admin access and standard user access",
+    "Subscription management for tracking partners/sponsors/affiliates",
+    "Stripe payment integration required",
+    "Pink and purple color scheme matching Twitch branding"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Moonlight Rebels logo with pink and purple gaming aesthetic featuring moon and rebel themes (logo.dim_400x400.png)\n- Hero background with pink and purple gradient matching Twitch theme and gaming atmosphere (hero-bg.dim_1920x600.png)",
+  "existing_features": [
+    {
+      "id": "feature-implement-owner-admin-authentication-system-using-internet-identity-that-restricts-access-to-admin-features",
+      "title": "Implement owner/admin authentication system using Internet Identity that restricts access to admin features",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-separate-user-authentication-system-using-internet-identity-for-regular-users",
+      "title": "Implement separate user authentication system using Internet Identity for regular users",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-partner-sponsor-affiliate-tracking-page-that-displays-and-manages-partners-sponsors-and-affiliates-with-paid-subscription-functionality",
+      "title": "Create partner/sponsor/affiliate tracking page that displays and manages partners, sponsors, and affiliates with paid subscription functionality",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-integrate-stripe-payment-processing-in-the-admin-page-for-managing-subscriptions",
+      "title": "Integrate Stripe payment processing in the admin page for managing subscriptions",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-design-and-implement-pink-and-purple-twitch-themed-visual-design-throughout-the-entire-website-matching-the-moonlight-rebels-brand",
+      "title": "Design and implement pink and purple Twitch-themed visual design throughout the entire website matching the Moonlight Rebels brand",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-bio-section-that-explains-the-story-of-a-medical-mute-gamer-girl-and-encourages-visitors-to-follow-her",
+      "title": "Add bio section that explains the story of a medical mute gamer girl and encourages visitors to follow her",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-button-that-links-to-the-owner-s-twitch-channel-at-https-www-twitch-tv-auroramoonveil",
+      "title": "Add button that links to the owner's Twitch channel at https://www.twitch.tv/auroramoonveil",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Owner login authentication",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "User login authentication",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Partner/sponsor/affiliate tracking page with paid subscription",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Stripe integration in admin page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Pink and purple Twitch-themed design",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Bio section explaining medical mute gamer girl story",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Button linking to Twitch channel https://www.twitch.tv/auroramoonveil",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Store and manage partner, sponsor, and affiliate data in the backend including their details, categories, and subscription requirements",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Implement subscription management system in the backend to track user subscription status and control access to premium content",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Moonlight Rebels",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

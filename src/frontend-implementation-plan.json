@@ -1,0 +1,228 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Frontend implementation for Moonlight Rebels streamer website",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Implement owner/admin authentication system using Internet Identity with protected admin routes",
+      "acceptanceCriteria": [
+        "Owner can authenticate using Internet Identity",
+        "Admin-specific routes are protected and only accessible to authenticated owner",
+        "Clear distinction between owner and regular user authentication flows"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/LoginButton.tsx",
+          "operation": "create",
+          "description": "Create login button component using the authorization component's Internet Identity integration. Use useInternetIdentity hook and handle login/logout with query cache clearing. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/AdminGuard.tsx",
+          "operation": "create",
+          "description": "Create admin guard component that checks if the current user has admin role using the authorization component's isCallerAdmin backend capability. Show access denied screen for non-admin users. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useUserRole.ts",
+          "operation": "create",
+          "description": "Create hook to fetch the current user's role using the authorization component's getCallerUserRole backend capability with React Query. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement separate user authentication system using Internet Identity for regular users",
+      "acceptanceCriteria": [
+        "Regular users can authenticate using Internet Identity",
+        "User authentication is separate from owner authentication",
+        "Users can access user-specific features after authentication"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useGetCallerUserProfile.ts",
+          "operation": "create",
+          "description": "Create hook using the authorization component's getCallerUserProfile backend capability to fetch user profile and handle profile setup flow. Prevent profile setup modal flash by checking actor availability. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/ProfileSetupModal.tsx",
+          "operation": "create",
+          "description": "Create modal component for first-time user profile setup using the authorization component's saveCallerUserProfile backend capability. Ask user for their name when they first log in with a new principal. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Integrate ProfileSetupModal into the app to show on first login. Add logic to check user profile status using the authorization component and display the modal only when user is authenticated but has no profile. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Create partner/sponsor/affiliate tracking page with subscription-based access control",
+      "acceptanceCriteria": [
+        "Page displays list of partners, sponsors, and affiliates",
+        "Each entry can be categorized as partner, sponsor, or affiliate",
+        "Subscription-based access control is implemented",
+        "Only subscribed users can view the full tracking page or certain details"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/PartnersPage.tsx",
+          "operation": "create",
+          "description": "Create partners page that fetches and displays partner/sponsor/affiliate data using getPartners backend capability. Implement subscription check using getCallerSubscription backend capability to control access to full details. Show subscription prompt for non-subscribed users."
+        },
+        {
+          "path": "frontend/src/hooks/usePartners.ts",
+          "operation": "create",
+          "description": "Create hook to fetch partners list from backend using getPartners capability with React Query."
+        },
+        {
+          "path": "frontend/src/hooks/useSubscription.ts",
+          "operation": "create",
+          "description": "Create hook to fetch current user's subscription status using getCallerSubscription backend capability with React Query."
+        },
+        {
+          "path": "frontend/src/components/PartnerCard.tsx",
+          "operation": "create",
+          "description": "Create card component to display individual partner/sponsor/affiliate information with category badge and conditional content based on subscription status."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for /partners path to PartnersPage using TanStack Router."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Integrate Stripe payment processing in admin page for managing subscriptions",
+      "acceptanceCriteria": [
+        "Stripe payment integration is present in admin interface",
+        "Admin can manage subscription settings through Stripe",
+        "Payment flow is functional for subscription purchases"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminPage.tsx",
+          "operation": "create",
+          "description": "Create admin page with Stripe configuration panel using the stripe component's isStripeConfigured and setStripeConfiguration backend capabilities. Wrap with AdminGuard component to restrict access. Include partner management and subscription overview sections. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/StripeSetup.tsx",
+          "operation": "create",
+          "description": "Create Stripe configuration component using the stripe component that checks isStripeConfigured and shows setup form for secret key and allowed countries if not configured. Use setStripeConfiguration to save settings. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/hooks/useCreateCheckoutSession.ts",
+          "operation": "create",
+          "description": "Create checkout hook using the stripe component's createCheckoutSession backend capability. Parse JSON response, validate session URL exists, and return CheckoutSession object. Set success URL to /payment-success and cancel URL to /payment-failure. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/SubscriptionCheckout.tsx",
+          "operation": "create",
+          "description": "Create subscription checkout component using the stripe component with useCreateCheckoutSession hook. Redirect to Stripe checkout using window.location.href (not router navigation). Show error if session URL is missing. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/PaymentSuccess.tsx",
+          "operation": "create",
+          "description": "Create payment success page using the stripe component to display successful payment confirmation. Extract session ID from URL and call createSubscription backend capability to activate subscription. Provide navigation back to partners page."
+        },
+        {
+          "path": "frontend/src/pages/PaymentFailure.tsx",
+          "operation": "create",
+          "description": "Create payment failure page using the stripe component to display payment cancellation or failure message. Provide option to retry payment or return to partners page."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add routes for /admin, /payment-success, and /payment-failure paths using TanStack Router. Wire payment success and failure routes to their respective components."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Design and implement pink and purple Twitch-themed visual design matching Moonlight Rebels brand",
+      "acceptanceCriteria": [
+        "Website uses pink and purple color scheme consistent with Twitch branding",
+        "Moonlight Rebels name is prominently displayed",
+        "Visual theme is cohesive across all pages",
+        "Design reflects gaming/streaming aesthetic"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles with pink and purple color scheme for Moonlight Rebels brand. Define CSS custom properties for primary (purple), secondary (pink), accent colors, and gaming-themed gradients. Apply Twitch-inspired aesthetic throughout."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Configure Tailwind theme with pink and purple color palette matching Twitch aesthetic. Add custom colors for moonlight (purple shades) and rebel (pink shades) themes, plus gaming-focused design tokens."
+        },
+        {
+          "path": "frontend/src/components/Header.tsx",
+          "operation": "create",
+          "description": "Create header component with Moonlight Rebels branding, logo display using generated image from frontend/public/assets/generated/logo.dim_400x400.png, navigation links, and login button. Apply pink/purple theme styling."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create layout wrapper component that includes Header and applies consistent pink/purple theming across all pages. Use hero background image from frontend/public/assets/generated/hero-bg.dim_1920x600.png on homepage."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all routes with Layout component to ensure consistent Moonlight Rebels branding and pink/purple theme across the entire application."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Add bio section explaining medical mute gamer girl story with follow call-to-action",
+      "acceptanceCriteria": [
+        "Bio section is visible on the main page or dedicated about section",
+        "Content explains the medical mute gamer girl story in an engaging way",
+        "Bio includes call-to-action encouraging visitors to follow",
+        "Text is respectful and inspirational"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/BioSection.tsx",
+          "operation": "create",
+          "description": "Create bio section component that tells the story of a medical mute gamer girl in an engaging, respectful, and inspirational way. Include call-to-action encouraging visitors to follow. Style with pink/purple theme."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create homepage that includes BioSection component and hero section with generated background image frontend/public/assets/generated/hero-bg.dim_1920x600.png. Display Moonlight Rebels branding prominently."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for root path (/) to HomePage using TanStack Router."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Add button linking to owner's Twitch channel at https://www.twitch.tv/auroramoonveil",
+      "acceptanceCriteria": [
+        "Button is prominently displayed on the homepage",
+        "Button links correctly to https://www.twitch.tv/auroramoonveil",
+        "Link opens in a new tab",
+        "Button design matches the pink/purple Twitch theme"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/TwitchButton.tsx",
+          "operation": "create",
+          "description": "Create Twitch channel link button component that opens https://www.twitch.tv/auroramoonveil in a new tab using target=\"_blank\" and rel=\"noopener noreferrer\". Style button with pink/purple Twitch theme and Twitch icon."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Add TwitchButton component prominently to the homepage hero section below the bio content."
+        }
+      ]
+    }
+  ]
+}
